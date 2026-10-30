@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* Ao Portfolio — theme tokens.
+   Deep indigo night, one gold accent, quiet luxury.
+   Type-first, generous whitespace, no template clutter. */
+:root {
+  --bg: #0c101f;
+  --bg-deep: #080b16;
+  --surface: #151b31;
+  --surface-soft: #1a2140;
+  --ink: #f2ecd9;
+  --text: #ece7d8;
+  --muted: #9aa1b8;
+  --muted-deep: #6d7490;
+  --line: rgba(201, 162, 39, 0.22);
+  --line-soft: rgba(236, 231, 216, 0.08);
+  --gold: #c9a227;
+  --gold-bright: #e6c65a;
+  --gold-deep: #9a7b1c;
+
+  --background: var(--bg);
+  --foreground: var(--text);
+}
+
+body {
+  background:
+    radial-gradient(120% 60% at 50% -10%, rgba(201, 162, 39, 0.13) 0%, rgba(201, 162, 39, 0) 55%),
+    linear-gradient(180deg, #10162a 0%, var(--bg) 38%, var(--bg-deep) 100%);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family:
+    ui-sans-system,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    "Yu Gothic",
+    Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family:
+    "Hiragino Mincho ProN",
+    "Hiragino Mincho Pro",
+    "YuMincho",
+    "Yu Mincho",
+    "Noto Serif JP",
+    serif;
+}
+
+::selection {
+  background: var(--gold);
+  color: #14100a;
+}
+
+/* Entrance motion: quiet rise + fade, staggered by inline delay. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+  }
+}
